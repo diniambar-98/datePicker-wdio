@@ -1,0 +1,6 @@
+node_modules
+test/reports
+allure-report
+wdio.conf.local.js
+reports
+package-lock.json
