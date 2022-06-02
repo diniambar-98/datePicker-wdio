@@ -359,4 +359,49 @@ export default class Page {
 
   }
 
+  clickElementViaInject(element) {
+    // element is CSS SELECTOR ONLY
+    this.waitElementDisplayed(element);
+    browser.executeAsync(function (selector, done) {
+      document.querySelector(selector).click();
+      done();
+    }, element.selector);
+    browser.pause(500);
+  }
+
+  // removeAttribute(element, attribute) {
+  //     browser.execute(() =>
+  //     document.getElementById(element).removeAttribute(attribute)
+  //   )  
+  // }
+
+//   hideElement(sections){
+//     for (const section of sections) {
+//       browser.execute(function (sec) {
+//           document.querySelector(sec).style.display = "none";
+//       }, section);  
+//     } 
+// }
+
+// selectElement(element) {
+//   const coba = browser.execute((element) => {
+//   document.querySelectorAll(element);
+//   }, element)
+//   console.log(coba)
+// } 
+
+
+// removeAttr(element, attribute) {
+//   const elements = this.selectElement(element)
+//   browser.execute((attribute) => {
+//     for (let i = 0; i < elements.length; i++) {
+//       elements[i].removeAttribute(attribute)
+//     }
+//   }, attribute) 
+// }
+ removeAttribute() {
+  browser.execute(() => {
+    document.querySelectorAll('#stnkExpiredDate').forEach(b=>b.removeAttribute('readonly'));
+  })
+}
 }

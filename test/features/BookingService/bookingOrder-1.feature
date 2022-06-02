@@ -17,15 +17,6 @@ Feature: Booking Service - Success Booking Service Using Registered Engine Numbe
                 And User choose District 'Pati' in District Dropdown Lokasi Service
                 And User choose AHASS Pati on Booking Service Page
                 And User choose date of service on Booking Service Page
-                And User choose time of service on Booking Service Page
-                And User click Lanjutkan button on Booking Service Page
-                And User can see booking order step 1 is success
-                And User input KM Kendaraan '8000' on Booking Service Page
-                And User choose rekomendasi servis on Booking Service Page
-                And User choose part motor on Booking Service Page
-                And User write keluhan pada kendaraan 'Karet Ban robek dan mobil terdapat baret akibat tertabrak kendaraan lain ketika macet di rel kereta' on Booking Service
-                And User click Pesan Sekarang on Booking Service
-                And User can see booking order is success
-                Then User can verify Success Booking Page correctly
-
+                Then User choose time of service on Booking Service Page
+                
        
