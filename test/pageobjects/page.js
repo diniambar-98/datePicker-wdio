@@ -13,23 +13,6 @@ export default class Page {
     browser.url(path);
     browser.pause(1000);
     browser.refresh();
-    // this.clickElement($('.modal.location-modal'));
-    // this.clickElement($('.btn-submit-location'))
-    // browser.pause(1500);
-    // const cityName = browser.execute(function () {
-    //   let temp = localStorage.getItem('city_name');
-    //   return temp;
-    // });
-    // if (cityName === null) {
-    //   if ($('.header-location svg').isExisting()) {
-    //     browser.refresh();
-    //     this.clickElement($('.header-location svg'));
-    //     this.clickElement($('.city-location ~ .ui-selectmenu-button'));
-    //     this.clickElement($('//div[@class="ui-selectmenu-menu ui-front ui-selectmenu-open"] //li[.="Jakarta Utara"]'));
-    //     this.clickElement($('button[value="SIMPAN LOKASI"]'));
-    //     browser.pause(1500)
-    //   }
-    // }
   }
 
   openSetLocation(path,param) {
@@ -60,54 +43,10 @@ export default class Page {
 
   clickElement(element) {
     this.waitElementDisplayed(element);
-    // try {
       element.click();
-    // } catch (err) {
-    //   if (/chat-container/.test(err.message)) {
-    //     this.attachToAllureReport(err.name, '.chat-container is noned')
-    //     browser.executeAsync(function (done) {
-    //       document.querySelector('.chat-container').style.display = 'none';
-    //       done();
-    //     });
-    //   } else if (/goTop/.test(err.message)) {
-    //     this.attachToAllureReport(err.name, '#goTop is noned')
-    //     browser.executeAsync(function (done) {
-    //       document.querySelector('#goTop').style.display = 'none';
-    //       done();
-    //     });
-    //   } else if (/need-help-image/.test(err.message)) {
-    //     this.attachToAllureReport(err.name, '.chat-container image is noned')
-    //     browser.executeAsync(function (done) {
-    //       document.querySelector('.chat-container').style.display = 'none';
-    //       done();
-    //     });
-    //   } else if (/need-help-image/.test(err.message)) {
-    //     this.attachToAllureReport(err.name, '.header-main-container image is noned')
-    //     browser.executeAsync(function (done) {
-    //       document.querySelector('.header-main-container').style.display = 'none';
-    //       done();
-    //     });
-    //   } else if (/<span style="color: rgb\(206, 24, 30\);">/.test(err.message)) {
-    //     this.attachToAllureReport(err.name, 'interested visitors is noned')
-    //     browser.executeAsync(function (done) {
-    //       document.querySelector('div.ins-preview-wrapper').style.display = 'none';
-    //       done();
-    //     });
-    //   } else if (/ins-/.test(err.message)) {
-    //     this.attachToAllureReport(err.name, 'interested visitors is noned')
-    //     browser.executeAsync(function (done) {
-    //       document.querySelector('div.ins-preview-wrapper').style.display = 'none';
-    //       done();
-    //     });
-    //   } else {
-    //     throw err
-    //   }
-    //   this.clickElement(element);
-    // }
   }
 
   clickElementViaInject(element) {
-    // element is CSS SELECTOR ONLY
     this.waitElementDisplayed(element);
     browser.executeAsync(function (selector, done) {
       document.querySelector(selector).click();
@@ -171,7 +110,6 @@ export default class Page {
 
   elementScrollIntoView(element) {
     element.scrollIntoView({ block: "center", inline: "center" });
-    // element.scrollIntoView();
   }
   
   clickScrollElement(element) {
@@ -360,7 +298,6 @@ export default class Page {
   }
 
   clickElementViaInject(element) {
-    // element is CSS SELECTOR ONLY
     this.waitElementDisplayed(element);
     browser.executeAsync(function (selector, done) {
       document.querySelector(selector).click();
@@ -369,39 +306,9 @@ export default class Page {
     browser.pause(500);
   }
 
-  // removeAttribute(element, attribute) {
-  //     browser.execute(() =>
-  //     document.getElementById(element).removeAttribute(attribute)
-  //   )  
-  // }
-
-//   hideElement(sections){
-//     for (const section of sections) {
-//       browser.execute(function (sec) {
-//           document.querySelector(sec).style.display = "none";
-//       }, section);  
-//     } 
-// }
-
-// selectElement(element) {
-//   const coba = browser.execute((element) => {
-//   document.querySelectorAll(element);
-//   }, element)
-//   console.log(coba)
-// } 
-
-
-// removeAttr(element, attribute) {
-//   const elements = this.selectElement(element)
-//   browser.execute((attribute) => {
-//     for (let i = 0; i < elements.length; i++) {
-//       elements[i].removeAttribute(attribute)
-//     }
-//   }, attribute) 
-// }
  removeAttribute() {
-  browser.execute(() => {
-    document.querySelectorAll('#stnkExpiredDate').forEach(b=>b.removeAttribute('readonly'));
-  })
-}
+    browser.execute(() => {
+      document.querySelectorAll('#date-picker').forEach(b=>b.removeAttribute('readonly'));
+    }, )
+  }
 }
